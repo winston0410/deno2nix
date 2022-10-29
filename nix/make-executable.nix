@@ -21,7 +21,7 @@ in
 
     buildInputs = with pkgs; [deno jq];
     buildPhase = ''
-      export DENO_DIR="/tmp/deno2nix"
+      export DENO_DIR="$out/deno2nix"
       mkdir -p $DENO_DIR
       ln -s "${mkDepsLink lockfile}" $(deno info --json | jq -r .modulesCache)
 
